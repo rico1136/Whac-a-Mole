@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public float totalTime = 60f;
     public UnityEvent onTimerEnd;
 
-
     //private variables
     private float timeLeft;
     private bool isRunning;
@@ -39,8 +38,8 @@ public class GameManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0f)
             {
-                isRunning = false;
                 onTimerEnd.Invoke();
+                isRunning = false;
             }
         }
     }
