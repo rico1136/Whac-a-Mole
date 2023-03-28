@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class MoleController : MonoBehaviour
 {
-    public List<Mole> moles = new List<Mole>();
-
     public void StartGame()
     {
         
