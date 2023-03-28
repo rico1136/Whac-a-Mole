@@ -1,0 +1,36 @@
+using System;
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : MonoBehaviour
+{
+        //public variables
+        
+        //private variables
+        
+        
+        #region Unity Voids
+        private void Awake()
+        {
+            throw new NotImplementedException();
+        }
+    
+        private void Start()
+        {
+            throw new NotImplementedException();
+        }
+    
+        private void Update()
+        {
+    	throw new NotImplementedException();
+        }
+        #endregion
+    
+        #region Public Voids
+        #endregion
+    
+        #region Private Voids
+        #endregion
+       
+}
+#ROOTNAMESPACEEND#
