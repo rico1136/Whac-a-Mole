@@ -1,14 +1,15 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class HighScoreEntry
 {
-    private string _playerName;
-    private int _playerScore;
+    public string playerName;
+    public int playerScore;
 
     public HighScoreEntry(string PlayerName, int PlayerScore)
     {
-        _playerName = PlayerName;
-        _playerScore = PlayerScore;
+        playerName = PlayerName;
+        playerScore = PlayerScore;
     }
 }

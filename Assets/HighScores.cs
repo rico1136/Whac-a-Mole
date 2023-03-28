@@ -1,25 +1,24 @@
+using System.Security.AccessControl;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+[Serializable]
 public class HighScores
 {
         //public variables
-        public List<HighScoreEntry> highScoreEntries;
+        public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
 
         //private variables
         
         public HighScores(string HighScoresJson)
         {
-            //Create new list if highscorejson is empty
-            if (HighScoresJson == null)
-            {
-                highScoreEntries = new List<HighScoreEntry>();
-                return;
-            }
+            //Return if json doesnt excist or something went wrong
+            if (String.IsNullOrEmpty(HighScoresJson)) return;
+
+            HighScores tmp = SerializeFromJson(HighScoresJson);            
 
             //Get the highscore list from the saved json
-            HighScores tmp = JsonUtility.FromJson<HighScores>(HighScoresJson);
             this.highScoreEntries = tmp.highScoreEntries;
         }
         
@@ -27,23 +26,12 @@ public class HighScores
 
         #endregion
     
-        #region Public Voids
-        private string SerializeToJson()
+        #region Private voids
+        private HighScores SerializeFromJson(string json)
         {
-            string json = JsonUtility.ToJson(this);
-            return json;
+            return JsonUtility.FromJson<HighScores>(json);
         }
-        private void AddHightScoreEntry(HighScoreEntry entryToAdd)
-        {
-            //Add entry to the highScoreList
-            highScoreEntries.Add(entryToAdd);
-
-            //Save the new list in playerprefs
-            PlayerPrefs.SetString("HighScores", SerializeToJson());
-        }
-        #endregion
-    
-        #region Private Voids
+        
         #endregion
        
 }
