@@ -10,7 +10,7 @@ public class MoleController : MonoBehaviour
 
     public bool started = false;
 
-    public float score; 
+    public int score; 
     public void StartGame()
     {
         foreach (Mole mole in moles)

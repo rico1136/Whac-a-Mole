@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class HighScoreController : MonoBehaviour
 {
+    //TODO other way then this
+    public GameManager gameManager;
+
     public HighScoreEntryController HighScoreEntryPrefab;
     public Transform entryParent;
     HighScores highScores;
@@ -16,8 +19,8 @@ public class HighScoreController : MonoBehaviour
         //Get the highscores from the saved json in playerprefs
         highScores = new HighScores(PlayerPrefs.GetString("HighScores", null));
 
-        //FOR TESTING TODO Remove
-        AddHightScoreEntry(new HighScoreEntry("Rico",100));
+        //TODO get other way
+        AddHightScoreEntry(gameManager.score);
 
         //Sort the highscoreEntries by highest first
         highScores.highScoreEntries = highScores.highScoreEntries.OrderBy(x => -x.playerScore).ToList();
@@ -37,6 +40,8 @@ public class HighScoreController : MonoBehaviour
         #region Private Voids
         private void AddHightScoreEntry(HighScoreEntry entryToAdd)
         {
+            if (entryToAdd.playerScore == 0) return;
+
             if (highScores.highScoreEntries == null)
             {
                 highScores.highScoreEntries = new List<HighScoreEntry>();
