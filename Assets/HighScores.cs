@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class HighScores
 {
-        //public variables
+        //the list with all the highscoreEntries
         public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
 
         //private variables
@@ -15,10 +15,9 @@ public class HighScores
         {
             //Return if json doesnt excist or something went wrong
             if (String.IsNullOrEmpty(HighScoresJson)) return;
-
-            HighScores tmp = SerializeFromJson(HighScoresJson);            
-
+            
             //Get the highscore list from the saved json
+            HighScores tmp = SerializeFromJson(HighScoresJson); 
             this.highScoreEntries = tmp.highScoreEntries;
         }
         
