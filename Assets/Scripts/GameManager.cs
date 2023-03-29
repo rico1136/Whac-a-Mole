@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {    
@@ -13,10 +14,10 @@ public class GameManager : MonoBehaviour
     public float totalTime = 60f;
     public UnityEvent onTimerEnd;
     public HighScoreEntry score = new HighScoreEntry(null,0);
+    [HideInInspector]public float timeLeft;
 
 
     //private variables
-    private float timeLeft;
     private bool isRunning;
 
     #region Gamover
@@ -65,22 +66,27 @@ public class GameManager : MonoBehaviour
 
     #region Public Voids
 
+    //this works for now but could be cleaner
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    #endregion
+
+    #region Private Voids
     private void StartTimer()
     { 
         timeLeft = totalTime;
         isRunning = true;
     }
 
-    //TODO other way
+    //TODO this works but could be cleaner
     private void SetName(string name)
     {
         score.playerName = name;
     }
-
-    #endregion
-
-    #region Private Voids
-
+    
     private void SetScore()
     {
         score.playerScore = moleController.score;
@@ -93,6 +99,6 @@ public class GameManager : MonoBehaviour
 
         StartTimer();
     }
-
+    
     #endregion
 }

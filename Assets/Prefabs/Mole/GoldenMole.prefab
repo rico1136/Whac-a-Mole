@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327456598524904403}
   - component: {fileID: 5963026657768021688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GoldenMole
   m_TagString: Untagged
   m_Icon: {fileID: 0}

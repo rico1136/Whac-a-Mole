@@ -17,8 +17,8 @@ public class InputManager : MonoBehaviour
             // Check if the ray hits an object with the IClickable interface
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
             {
-                IClickable clickable = hit.collider.GetComponent<IClickable>();
-
+                IClickable clickable = hit.collider.GetComponentInParent<IClickable>();
+                
                 if (clickable != null)
                 {
                     clickable.OnClicked(); // Call the OnPressed method of the IClickable object

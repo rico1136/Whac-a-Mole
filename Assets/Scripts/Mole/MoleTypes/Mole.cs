@@ -14,6 +14,8 @@ namespace Mole
         public abstract int Probability { get; }
         public abstract int Points { get; }
 
+        private bool active = true;
+
         //Set when spawned into world
         [HideInInspector]public MoleController moleController;
 
@@ -24,9 +26,11 @@ namespace Mole
 
         public void OnClicked()
         {
+            if (!active) return;
             StopAllCoroutines();
             OnMoleClicked();
-            moleController.score++;
+            moleController.score += Points;
+            active = false;
         }
 
         public abstract void OnMoleClicked();

@@ -7,7 +7,7 @@ namespace Mole
     {
         public List<Mole> moles = new List<Mole>();
         public List<Transform> moleHoles = new List<Transform>();
-
+        
         private List<Mole> _currentActiveMoles = new List<Mole>();
 
         public bool started = false;
@@ -18,7 +18,6 @@ namespace Mole
         {
             _currentActiveMoles.Clear();
             score = 0;
-
             started = true;
         }
 
@@ -66,7 +65,6 @@ namespace Mole
 
             float randomValue = Random.Range(0f, sumOfProbabilities);
             
-            Debug.Log(randomValue);
 
             for (int i = 0; i < moles.Count; i++)
             {
