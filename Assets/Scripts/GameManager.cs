@@ -1,29 +1,30 @@
 using System;
+using Mole;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class GameManager : MonoBehaviour
-{
+{    
     //public variables
-    public HighScoreEntry score = new HighScoreEntry(null,0);
-
     public Button gameStart;
-
-    #region Gamover
-    public TMP_InputField nameInput;
-    public TMP_Text scoreText;
-#endregion
-
+    public MoleController moleController;
     public float totalTime = 60f;
     public UnityEvent onTimerEnd;
-    public MoleController moleController;
+    public HighScoreEntry score = new HighScoreEntry(null,0);
+
+
     //private variables
     private float timeLeft;
     private bool isRunning;
+
+    #region Gamover
+
+    public TMP_InputField nameInput;
+    public TMP_Text scoreText;
+
+    #endregion
 
     #region Unity Voids
 
@@ -64,20 +65,22 @@ public class GameManager : MonoBehaviour
 
     #region Public Voids
 
-    public void StartTimer()
-    {
+    private void StartTimer()
+    { 
         timeLeft = totalTime;
         isRunning = true;
     }
 
     //TODO other way
-    public void SetName(string name)
+    private void SetName(string name)
     {
         score.playerName = name;
     }
+
     #endregion
 
     #region Private Voids
+
     private void SetScore()
     {
         score.playerScore = moleController.score;
