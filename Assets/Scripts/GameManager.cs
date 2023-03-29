@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
                 onTimerEnd.Invoke();
                 isRunning = false;
                 SetScore();
-                
             }
         }
     }

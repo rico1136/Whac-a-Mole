@@ -7,12 +7,13 @@ namespace Mole
     {
 
         public float quickHideDuration = .25f;
-
+        public ParticleSystem hitParticle;
         public override int Probability => 1;
         public override int Points => 10;
 
         public override void OnMoleClicked()
         {
+            hitParticle.Play();
             StartCoroutine(QuickHide(quickHideDuration,startPos, endPos));
         }
 

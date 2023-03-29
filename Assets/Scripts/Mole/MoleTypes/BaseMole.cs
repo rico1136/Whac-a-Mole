@@ -11,8 +11,10 @@ namespace Mole
         public override int Probability => 5;
         public override int Points => 1;
 
+        public Material HitMaterial;
         public override void OnMoleClicked()
         {
+            GetComponentInChildren<Renderer>().material = HitMaterial;
             StartCoroutine(QuickHide(quickHideDuration,startPos, endPos));
         }
 

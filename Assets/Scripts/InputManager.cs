@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Check if left mouse button is pressed
         {
-            // Cast a ray from the mouse position
+            // Cast a ray from the mouse position 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             // Check if the ray hits an object with the IClickable interface
