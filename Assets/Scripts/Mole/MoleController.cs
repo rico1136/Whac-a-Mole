@@ -32,7 +32,7 @@ namespace Mole
             if (started)
             {
                 //TODO Change this 1 over time
-                if (_currentActiveMoles.Count < 1)
+                if (_currentActiveMoles.Count < 2)
                 {
                     SpawnMoleInRandomHole();
                 }

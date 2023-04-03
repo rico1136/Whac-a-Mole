@@ -4282,7 +4282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStart: {fileID: 753248753}
   moleController: {fileID: 785771855}
-  totalTime: 10
+  totalTime: 60
   onTimerEnd:
     m_PersistentCalls:
       m_Calls:
